@@ -1,4 +1,4 @@
-package site.kongdroid.kotlinbackend
+package coffee.kotlin.backend
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
