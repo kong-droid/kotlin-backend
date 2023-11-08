@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tlksys?currentSchema=belogger
+    username: postgres
+    password: Qwer!234
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        jdbc.time_zone: KST
+        connection.isolation: READ_COMMITED
+        enable_lazy_load_no_trans: true
+        format_sql: true
+        generate_statistics: true
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        globally_quoted_identifiers: true
+    open-in-view: false
+    show-sql: true
