@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/tlksys?currentSchema=belogger
+    url: jdbc:postgresql://localhost:5432/public?currentSchema=kotlin-backend
     username: postgres
     password: Qwer!234
   jpa:
