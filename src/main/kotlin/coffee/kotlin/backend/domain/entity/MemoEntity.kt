@@ -1,6 +1,5 @@
 package coffee.kotlin.backend.domain.entity
 
-import coffee.kotlin.backend.domain.request.RegisterMemoRequest
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.GenericGenerator
 import java.time.Instant

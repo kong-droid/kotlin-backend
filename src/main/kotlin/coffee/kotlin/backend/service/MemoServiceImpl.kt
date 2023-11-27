@@ -38,5 +38,7 @@ class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
             memoRepository.deleteById(request.memoId);
             true;
         } else false;
+        TODO("Not yet implemented")
     }
+
 }
