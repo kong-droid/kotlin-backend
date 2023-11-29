@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "f2489ab5-5173-4f4a-91f5-1bfc32fbb222",
+		"name": "memo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10527470"
+	},
+	"item": [
+		{
+			"name": "read memo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"랄랄감자\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local-url}}/memo/read",
+					"host": [
+						"{{local-url}}"
+					],
+					"path": [
+						"memo",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add memo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"랄랄감자\",\r\n    \"password\": \"1234\",\r\n    \"contents\": \"안녕하세요! 나는 랄랄감자!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local-url}}/memo",
+					"host": [
+						"{{local-url}}"
+					],
+					"path": [
+						"memo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "set memo",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"memoId\": \"1abecda5-ce6f-4189-bee2-1d4aeba1d0cb\",\r\n    \"password\": \"1234\",\r\n    \"contents\": \"안녕하세요!! 헬로 코틀린 API!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local-url}}/memo",
+					"host": [
+						"{{local-url}}"
+					],
+					"path": [
+						"memo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete memo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"memoId\": \"3569e049-616c-48da-a963-7378dd9b6f4d\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local-url}}/memo",
+					"host": [
+						"{{local-url}}"
+					],
+					"path": [
+						"memo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

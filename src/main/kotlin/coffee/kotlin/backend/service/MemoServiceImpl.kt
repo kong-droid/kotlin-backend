@@ -34,11 +34,10 @@ class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
 
     override fun removeMemo(request: RemoveMemoRequest): Boolean {
         val memo:MemoEntity = memoRepository.findById(request.memoId).orElse(null);
-        return if (memo.id == request.memoId) {
+        return if (memo.id == request.memoId && memo.password == request.password) {
             memoRepository.deleteById(request.memoId);
             true;
         } else false;
-        TODO("Not yet implemented")
     }
 
 }
