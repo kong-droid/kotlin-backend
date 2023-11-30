@@ -15,6 +15,7 @@ kotlin-backend
 ### 2. package
 ```
 - site.kongdroid.kotlinbackend
+    - config
     - controller
     - service
     - repository
