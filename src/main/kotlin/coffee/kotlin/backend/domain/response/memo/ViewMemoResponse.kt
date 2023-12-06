@@ -1,4 +1,4 @@
-package coffee.kotlin.backend.domain.response
+package coffee.kotlin.backend.domain.response.memo
 
 import coffee.kotlin.backend.domain.entity.MemoEntity
 import io.swagger.v3.oas.annotations.media.Schema

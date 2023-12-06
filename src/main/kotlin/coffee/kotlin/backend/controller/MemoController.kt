@@ -4,8 +4,8 @@ import coffee.kotlin.backend.domain.request.ModifyMemoRequest
 import coffee.kotlin.backend.domain.request.RegisterMemoRequest
 import coffee.kotlin.backend.domain.request.RemoveMemoRequest
 import coffee.kotlin.backend.domain.request.ViewMemoRequest
-import coffee.kotlin.backend.domain.response.MemoIdResponse
-import coffee.kotlin.backend.domain.response.ViewMemoResponse
+import coffee.kotlin.backend.domain.response.memo.MemoIdResponse
+import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
 import coffee.kotlin.backend.service.MemoService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
