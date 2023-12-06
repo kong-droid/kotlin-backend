@@ -1,0 +1,34 @@
+response:
+  success:
+    result:
+      code: "0"
+      message: "success"
+    empty:
+      code: "1"
+      message: "empty"
+  error:
+    request:
+      query:
+        parameter:
+          code: "100"
+          message: "invalided parameter. : {0}"
+      body:
+        field:
+          code: "101"
+          message: "invalided body. : {0}"
+    io:
+      check:
+        file:
+          name:
+            code: "200"
+            message: "check the file name."
+      cannot:
+        create:
+          folder:
+            code: "201"
+            message: "can not create the folder."
+    common:
+      not:
+        found:
+          code: "404"
+          message: "not found."

@@ -22,5 +22,6 @@ data class MemoEntity (
     val password: String,
     val contents: String,
     @CreationTimestamp
+    @Column(updatable = false, insertable = true)
     val createdAt: Instant = Instant.now()
 )
