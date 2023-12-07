@@ -9,7 +9,8 @@ import org.springframework.data.domain.Page
 import java.util.Optional
 
 
-class BaseController(private val messageSource: MessageSource) {
+open class BaseController(private val messageSource: MessageSource) {
+
     fun <T> wrap(data: T): ApiSuccessResponse<T> {
         var success: SuccessMessage = SuccessMessage.EMPTY;
 
