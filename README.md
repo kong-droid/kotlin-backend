@@ -4,8 +4,8 @@ kotlin-backend
 ### 1. spec
 ```
 - language: 
-    - java 11 (jvm 1.6.21)
-    - kotlin 1.6.21
+    - java 11 (jvm 1.9.21)
+    - kotlin 1.9.21
 - framework:
     - spring boot 2.7.17
 - dbms:
