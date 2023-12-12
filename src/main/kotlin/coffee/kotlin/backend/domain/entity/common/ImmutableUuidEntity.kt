@@ -16,6 +16,6 @@ open class ImmutableUuidEntity (
     @Column(updatable = false)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @CreationTimestamp
-    val createdAt: Instant,
+    open val createdAt: Instant,
     override val id: UUID
 ): UuidEntity(id)
