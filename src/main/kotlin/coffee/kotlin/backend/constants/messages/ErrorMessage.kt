@@ -8,7 +8,8 @@ enum class ErrorMessage(@Accessors(fluent = true) val code: String) {
     REQUEST_BODY_FIELD("101"),
     IO_CHECK_FILE_NAME("200"),
     IO_CANNOT_CREATE_FOLDER("201"),
-    COMMON_NOT_FOUND("404");
+    COMMON_NOT_FOUND("404"),
+    MEMO_NOT_FOUND("1000");
 
     fun getCode(): Int {
         return Integer.parseInt(code);

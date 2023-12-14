@@ -1,5 +1,6 @@
 package coffee.kotlin.backend.service
 
+import coffee.kotlin.backend.constants.messages.ErrorMessage
 import coffee.kotlin.backend.domain.entity.MemoEntity
 import coffee.kotlin.backend.domain.request.ModifyMemoRequest
 import coffee.kotlin.backend.domain.request.RegisterMemoRequest
@@ -7,6 +8,7 @@ import coffee.kotlin.backend.domain.request.RemoveMemoRequest
 import coffee.kotlin.backend.domain.request.ViewMemoRequest
 import coffee.kotlin.backend.domain.response.memo.MemoIdResponse
 import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
+import coffee.kotlin.backend.exception.custom.NotFoundException
 import coffee.kotlin.backend.repository.MemoRepository
 import org.springframework.stereotype.Service
 import java.util.UUID
@@ -29,7 +31,7 @@ class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
         return if(memo.password == request.password) {
             memoRepository.save(entity);
             true;
-        } else false;
+        } else throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND);
     }
 
     override fun removeMemo(request: RemoveMemoRequest): Boolean {
@@ -37,7 +39,7 @@ class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
         return if (memo.id == request.memoId && memo.password == request.password) {
             memoRepository.deleteById(request.memoId);
             true;
-        } else false;
+        } else throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND);
     }
 
 }

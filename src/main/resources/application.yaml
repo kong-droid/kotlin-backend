@@ -11,7 +11,7 @@ spring:
   application:
     name: memo-api
   datasource:
-    url: jdbc:postgresql://localhost:5432/public?currentSchema=kotlin-backend
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
     username: postgres
     password: Qwer!234
   jpa:

@@ -7,5 +7,5 @@ import lombok.experimental.Accessors
 open class BaseException(
     message: String?,
     cause: Throwable?,
-    @Accessors(fluent = true) private val error: ErrorMessage?
+    val error: ErrorMessage?
 ) : NestedRuntimeException(message, cause)
