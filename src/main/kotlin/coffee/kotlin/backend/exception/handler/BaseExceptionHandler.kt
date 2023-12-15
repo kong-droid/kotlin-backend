@@ -9,20 +9,20 @@ import org.springframework.lang.Nullable
 import java.util.*
 
 open class BaseExceptionHandler(private val messageSource: MessageSource) {
-    fun getMessage(target: String, @Nullable args: Array<String?>?): String {
+    fun getMessage(target: String, @Nullable args: Array<String>): String {
         return getMessage(target, args, LocaleContextHolder.getLocale())
     }
 
-    fun getMessage(target: String, @Nullable args: Array<String?>?, locale: Locale): String {
+    fun getMessage(target: String, @Nullable args: Array<String>, locale: Locale): String {
         return messageSource.getMessage(target, args, locale)
     }
 
     fun toResponse(exception: BaseException): ApiErrorResponse? {
-        val error: ErrorMessage? = exception.error;
-        return error?.let { toResponse(it, null) }
+        val error: ErrorMessage = exception.error;
+        return toResponse(error, emptyArray());
     }
 
-    fun toResponse(error: ErrorMessage, args: Array<String?>?): ApiErrorResponse? {
+    fun toResponse(error: ErrorMessage, args: Array<String>): ApiErrorResponse? {
         val message = getMessage(error.resName(), args)
         return ApiErrorResponse(error.getCode(), message)
     }

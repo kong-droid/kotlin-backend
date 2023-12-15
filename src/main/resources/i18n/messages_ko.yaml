@@ -37,3 +37,7 @@ response:
         found:
           code: "1000"
           message: "메모를 찾을 수 없습니다."
+      password:
+        mismatch:
+          code: "1100"
+          message: "메모 패스워드가 일치하지 않습니다."
