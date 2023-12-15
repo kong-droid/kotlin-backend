@@ -8,7 +8,7 @@ import org.springframework.context.i18n.LocaleContextHolder
 import org.springframework.lang.Nullable
 import java.util.*
 
-open class BaseExceptionHandler(private val messageSource: MessageSource) {
+abstract class BaseExceptionHandler(private val messageSource: MessageSource) {
     fun getMessage(target: String, @Nullable args: Array<String>): String {
         return getMessage(target, args, LocaleContextHolder.getLocale())
     }
