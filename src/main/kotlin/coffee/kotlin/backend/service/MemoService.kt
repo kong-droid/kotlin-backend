@@ -9,6 +9,6 @@ import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
 interface MemoService {
     fun getMemo(request: ViewMemoRequest): List<ViewMemoResponse>
     fun addMemo(request: RegisterMemoRequest): MemoIdResponse
-    fun setMemo(request: ModifyMemoRequest): Boolean
-    fun removeMemo(request: RemoveMemoRequest): Boolean
+    fun setMemo(request: ModifyMemoRequest): MemoIdResponse
+    fun removeMemo(request: RemoveMemoRequest): MemoIdResponse
 }

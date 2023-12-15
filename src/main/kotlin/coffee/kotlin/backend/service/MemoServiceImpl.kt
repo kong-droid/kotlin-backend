@@ -25,21 +25,22 @@ class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
         return MemoIdResponse(result);
     }
 
-    override fun setMemo(request: ModifyMemoRequest): Boolean {
-        val memo:MemoEntity = memoRepository.findById(request.memoId).orElse(null);
+    override fun setMemo(request: ModifyMemoRequest): MemoIdResponse {
+        val memo:MemoEntity = memoRepository.findById(request.memoId)
+            .orElseThrow {throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND)}
         val entity:MemoEntity = MemoEntity(memo.id, memo.name, request.password, request.contents);
-        return if(memo.password == request.password) {
-            memoRepository.save(entity);
-            true;
-        } else throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND);
+        if(memo.password == request.password) {
+            return MemoIdResponse(memoRepository.save(entity).id);
+        } else throw NotFoundException(ErrorMessage.MEMO_PASSWORD_MISMATCH);
     }
 
-    override fun removeMemo(request: RemoveMemoRequest): Boolean {
-        val memo:MemoEntity = memoRepository.findById(request.memoId).orElse(null);
-        return if (memo.id == request.memoId && memo.password == request.password) {
-            memoRepository.deleteById(request.memoId);
-            true;
-        } else throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND);
+    override fun removeMemo(request: RemoveMemoRequest): MemoIdResponse {
+        val memo:MemoEntity = memoRepository.findById(request.memoId)
+            .orElseThrow {throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND)}
+        if(memo.id == request.memoId && memo.password == request.password) {
+            val effectRow: Long = memoRepository.deleteByIdAndPassword(request.memoId, request.password);
+            if(effectRow > 0) return MemoIdResponse(memo.id);
+        } else throw NotFoundException(ErrorMessage.MEMO_PASSWORD_MISMATCH);
+        return MemoIdResponse(null);
     }
-
 }

@@ -43,13 +43,13 @@ class MemoController(private val memoService: MemoService, messageSource: Messag
 
     @PatchMapping
     @Operation(summary = "메모 수정", description = "메모 수정")
-    fun modify(@Valid @RequestBody request:ModifyMemoRequest): ApiSuccessResponse<Boolean> {
+    fun modify(@Valid @RequestBody request:ModifyMemoRequest): ApiSuccessResponse<MemoIdResponse> {
         return wrap(memoService.setMemo(request))
     }
 
     @DeleteMapping
     @Operation(summary = "메모 삭제", description = "메모 삭제")
-    fun delete(@Valid @RequestBody request:RemoveMemoRequest): ApiSuccessResponse<Boolean> {
+    fun delete(@Valid @RequestBody request:RemoveMemoRequest): ApiSuccessResponse<MemoIdResponse> {
         return wrap(memoService.removeMemo(request))
     }
 }
