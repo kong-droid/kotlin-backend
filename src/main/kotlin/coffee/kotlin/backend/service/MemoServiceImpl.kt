@@ -10,12 +10,13 @@ import coffee.kotlin.backend.domain.response.memo.MemoIdResponse
 import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
 import coffee.kotlin.backend.exception.custom.NotFoundException
 import coffee.kotlin.backend.repository.MemoRepository
+import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 import java.util.UUID
 
 @Service
 class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
-    override fun getMemo(request: ViewMemoRequest): List<ViewMemoResponse> {
+    override fun getMemos(request: ViewMemoRequest): Page<ViewMemoResponse> {
         return memoRepository.findAllByName(request.name).map { ViewMemoResponse(entity = it) }
     }
 

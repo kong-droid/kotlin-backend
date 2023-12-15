@@ -6,6 +6,7 @@ import coffee.kotlin.backend.domain.request.RegisterMemoRequest
 import coffee.kotlin.backend.domain.request.RemoveMemoRequest
 import coffee.kotlin.backend.domain.request.ViewMemoRequest
 import coffee.kotlin.backend.domain.response.common.ApiSuccessResponse
+import coffee.kotlin.backend.domain.response.common.PageResponse
 import coffee.kotlin.backend.domain.response.memo.MemoIdResponse
 import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
 import coffee.kotlin.backend.service.MemoService
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.awt.print.Pageable
 import javax.validation.Valid
 
 @Validated
@@ -31,8 +33,8 @@ class MemoController(private val memoService: MemoService, messageSource: Messag
 
     @GetMapping
     @Operation(summary = "메모 조회", description = "닉네임, 날짜별 메모 조회")
-    fun memos(@ParameterObject request: ViewMemoRequest): ApiSuccessResponse<List<ViewMemoResponse>> {
-        return wrap(memoService.getMemo(request))
+    fun memos(@ParameterObject request: ViewMemoRequest, pageable: Pageable): ApiSuccessResponse<PageResponse<ViewMemoResponse>> {
+        return page(memoService.getMemos(request, pageable))
     }
 
     @PostMapping

@@ -6,8 +6,11 @@ import coffee.kotlin.backend.domain.request.RemoveMemoRequest
 import coffee.kotlin.backend.domain.request.ViewMemoRequest
 import coffee.kotlin.backend.domain.response.memo.MemoIdResponse
 import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
+import org.springframework.data.domain.Page
+import java.awt.print.Pageable
+
 interface MemoService {
-    fun getMemo(request: ViewMemoRequest): List<ViewMemoResponse>
+    fun getMemos(request: ViewMemoRequest, pageable: Pageable): Page<ViewMemoResponse>
     fun addMemo(request: RegisterMemoRequest): MemoIdResponse
     fun setMemo(request: ModifyMemoRequest): MemoIdResponse
     fun removeMemo(request: RemoveMemoRequest): MemoIdResponse
