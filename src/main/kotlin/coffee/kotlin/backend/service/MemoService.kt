@@ -7,7 +7,7 @@ import coffee.kotlin.backend.domain.request.ViewMemoRequest
 import coffee.kotlin.backend.domain.response.memo.MemoIdResponse
 import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
 import org.springframework.data.domain.Page
-import java.awt.print.Pageable
+import org.springframework.data.domain.Pageable
 
 interface MemoService {
     fun getMemos(request: ViewMemoRequest, pageable: Pageable): Page<ViewMemoResponse>

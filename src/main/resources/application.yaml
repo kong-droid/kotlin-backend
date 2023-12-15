@@ -1,6 +1,10 @@
 server:
   port: 3000
 spring:
+  profiles:
+    active: local
+  application:
+    name: memo-api
   messages:
     basename: i18n/messages
     encoding: UTF-8
@@ -8,12 +12,6 @@ spring:
     always-use-message-format: true
     fallback-to-system-locale: true
     use-code-as-default-message: true
-  application:
-    name: memo-api
-  datasource:
-    url: jdbc:postgresql://localhost:5432/public?currentSchema=kotlin-backend
-    username: postgres
-    password: Qwer!234
   jpa:
     hibernate:
       ddl-auto: none

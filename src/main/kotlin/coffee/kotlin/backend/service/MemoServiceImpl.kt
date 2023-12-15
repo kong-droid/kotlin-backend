@@ -11,13 +11,27 @@ import coffee.kotlin.backend.domain.response.memo.ViewMemoResponse
 import coffee.kotlin.backend.exception.custom.NotFoundException
 import coffee.kotlin.backend.repository.MemoRepository
 import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
+import java.time.Instant
+import java.time.ZoneId
 import java.util.UUID
 
 @Service
 class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
-    override fun getMemos(request: ViewMemoRequest): Page<ViewMemoResponse> {
-        return memoRepository.findAllByName(request.name).map { ViewMemoResponse(entity = it) }
+    override fun getMemos(request: ViewMemoRequest, pageable: Pageable): Page<ViewMemoResponse> {
+        return if(request.createdAt != null) {
+            val startAt: Instant = request.createdAt
+                .atTime(0,0,0)
+                .atZone(ZoneId.of("Asia/Seoul")).toInstant()
+            val endAt: Instant = request.createdAt
+                .atTime(23,59,59)
+                .atZone(ZoneId.of("Asia/Seoul")).toInstant()
+            memoRepository.findAllByNameAndCreatedAtIsBetween(request.name,
+                startAt, endAt, pageable).map {  ViewMemoResponse(it) }
+        } else {
+            memoRepository.findAllByName(request.name, pageable).map { ViewMemoResponse(it) }
+        }
     }
 
     override fun addMemo(request: RegisterMemoRequest): MemoIdResponse {
