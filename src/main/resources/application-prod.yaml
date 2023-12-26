@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
-    username: postgres
+    url: jdbc:mysql://localhost:3306/be_scheduler?allowPublicKeyRetrieval=true&useSSL=false&allowMultiQueries=true&autoreconnect=true
+    username: root
     password: Qwer!234

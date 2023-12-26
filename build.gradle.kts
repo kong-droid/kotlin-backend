@@ -35,9 +35,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     implementation("dev.akkinoc.util:yaml-resource-bundle:2.11.2")
+    implementation("mysql:mysql-connector-java:8.0.33")
+    implementation(group = "com.google.firebase", name = "firebase-admin", version = "9.1.1")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
