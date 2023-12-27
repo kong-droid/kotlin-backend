@@ -9,7 +9,7 @@ import java.util.UUID
 
 interface MemoRepository: JpaRepository<MemoEntity, UUID> {
     fun findAllByName(name: String, pageable: Pageable): Page<MemoEntity>
-    fun findAllByNameAndCreatedAtIsBetween(name: String, startAt: Instant, endAt: Instant,
+    fun findAllByNameAndCreatedAtIsBetween(name: String, startAt: Instant?, endAt: Instant?,
                                            pageable: Pageable): Page<MemoEntity>
     fun deleteByIdAndPassword(memoId: UUID, password: String): Long
 }
