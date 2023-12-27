@@ -22,8 +22,8 @@ import java.util.UUID
 class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
     override fun getMemos(request: ViewMemoRequest, pageable: Pageable): Page<ViewMemoResponse> {
         return if(request.createdAt != null) {
-            val startAt: Instant?= LocalDateToInstantConverter().convert(request.createdAt, 0, 0, 0)
-            val endAt: Instant?= LocalDateToInstantConverter().convert(request.createdAt, 23, 59, 59)
+            val startAt: Instant?= LocalDateToInstantConverter.convert(request.createdAt, 0, 0, 0)
+            val endAt: Instant?= LocalDateToInstantConverter.convert(request.createdAt, 23, 59, 59)
             memoRepository.findAllByNameAndCreatedAtIsBetween(request.name,
                 startAt, endAt, pageable).map {  ViewMemoResponse(it) }
         } else {
