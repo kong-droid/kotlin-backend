@@ -36,7 +36,7 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     implementation("dev.akkinoc.util:yaml-resource-bundle:2.11.2")
     implementation("mysql:mysql-connector-java:8.0.33")
-    implementation(group = "com.google.firebase", name = "firebase-admin", version = "9.1.1")
+    implementation("com.google.firebase:firebase-admin:9.2.0")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.projectlombok:lombok")
