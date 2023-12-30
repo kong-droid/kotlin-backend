@@ -3,3 +3,7 @@ spring:
     url: jdbc:mysql://localhost:3306/be_scheduler?allowPublicKeyRetrieval=true&useSSL=false&allowMultiQueries=true&autoreconnect=true
     username: root
     password: Qwer!234
+
+file:
+  upload:
+    path: D://data
