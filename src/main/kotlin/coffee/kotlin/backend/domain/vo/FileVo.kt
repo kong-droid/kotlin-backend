@@ -5,5 +5,5 @@ data class FileVo(
     val targetName: String,
     val size: Int,
     val path: String,
-    val type: String,
+    val type: String?,
 )

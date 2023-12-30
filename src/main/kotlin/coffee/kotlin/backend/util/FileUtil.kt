@@ -30,7 +30,7 @@ class FileUtil(
         println("Uploaded Info ::: \n$result")
         return result;
     }
-    
+
     fun create(location: String?, originName: String, type: String?, bytes: ByteArray): FileVo {
         val isGroup: Boolean = location.isNullOrEmpty()
         var targetDir: File = File(uploadPath)
