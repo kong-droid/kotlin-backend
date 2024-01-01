@@ -32,6 +32,11 @@ response:
         found:
           code: "404"
           message: "not found."
+    file:
+      not:
+        found:
+          code: "500"
+          message: "attachment not found."
     memo:
       not:
         found:

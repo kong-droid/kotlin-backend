@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service
 import java.time.Instant
 import java.time.ZoneId
 import java.util.UUID
+import javax.transaction.Transactional
 
 @Service
 class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
@@ -31,12 +32,14 @@ class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
         }
     }
 
+    @Transactional
     override fun addMemo(request: RegisterMemoRequest): MemoIdResponse {
         val entity = MemoEntity(name = request.name, password = request.password, contents = request.contents);
         val result:UUID = memoRepository.save(entity).id;
         return MemoIdResponse(result);
     }
 
+    @Transactional
     override fun setMemo(request: ModifyMemoRequest): MemoIdResponse {
         val memo:MemoEntity = memoRepository.findById(request.memoId)
             .orElseThrow {throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND)}
@@ -46,6 +49,7 @@ class MemoServiceImpl(private val memoRepository: MemoRepository): MemoService {
         } else throw NotFoundException(ErrorMessage.MEMO_PASSWORD_MISMATCH);
     }
 
+    @Transactional
     override fun removeMemo(request: RemoveMemoRequest): MemoIdResponse {
         val memo:MemoEntity = memoRepository.findById(request.memoId)
             .orElseThrow {throw NotFoundException(ErrorMessage.MEMO_NOT_FOUND)}

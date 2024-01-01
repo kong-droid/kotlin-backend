@@ -32,6 +32,11 @@ response:
         found:
           code: "404"
           message: "찾을 수 없습니다."
+    file:
+      not:
+        found:
+          code: "500"
+          message: "첨부 파일을 찾을 수 없습니다."
     memo:
       not:
         found:

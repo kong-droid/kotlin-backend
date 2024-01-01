@@ -8,6 +8,7 @@ enum class ErrorMessage(val code: String) {
     IO_CHECK_FILE_NAME("200"),
     IO_CANNOT_CREATE_FOLDER("201"),
     COMMON_NOT_FOUND("404"),
+    FILE_NOT_FOUND("500"),
     MEMO_NOT_FOUND("1000"),
     MEMO_PASSWORD_MISMATCH("1100");
 

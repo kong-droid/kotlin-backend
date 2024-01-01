@@ -21,7 +21,7 @@ import java.util.*
 class FileUtil(
     @Value("\${file.upload.path}") private val uploadPath: String
 ) {
-    fun create(location: String?, file: MultipartFile): Any {
+    fun create(location: String?, file: MultipartFile): FileVo {
         val originName: String= if(file.originalFilename.isNullOrEmpty()) file.name else file.originalFilename!!
 
         if(originName.contains("..")) throw InvalidStateException(ErrorMessage.IO_CHECK_FILE_NAME);
